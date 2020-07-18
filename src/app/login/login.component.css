@@ -1,0 +1,25 @@
+.card {
+    /* width: 35%; */
+    margin: auto;
+    top: 50px;
+}
+
+.container-fluid {
+    height: 100vh;
+    background-image: url("../../assets/images/home.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+}
+
+@media (min-width:1000px) {
+    .card {
+        width: 35%;
+    }
+}
+
+@media (min-width:500px) and (max-width: 999px) {
+    .card {
+        width: 85%;
+    }
+}

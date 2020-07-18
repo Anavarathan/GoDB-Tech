@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="card">
+        <form class="text-center border border-light p-5" [formGroup]="loginForm" (submit)="signin(loginForm.value)">
+
+            <p class="h4 mb-4">Sign in</p>
+
+            <input type="email" id="defaultLoginFormEmail" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+            <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid" class="alert alert-danger">
+                email is required</div>
+
+
+            <input type="password" id="defaultLoginFormPassword" formControlName="password" class="form-control mb-4" placeholder="Password">
+            <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid" class="alert alert-danger">password is required</div>
+
+
+
+            <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="loginForm.invalid">Sign
+                in</button>
+
+            <p>Not a member?
+                <a routerLink="/register">Register</a>
+            </p>
+
+            <p>or sign in with:</p>
+
+            <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="facebook"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="twitter"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="linkedin"></mdb-icon>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+                <mdb-icon fab icon="github"></mdb-icon>
+            </a>
+
+        </form>
+    </div>
+</div>

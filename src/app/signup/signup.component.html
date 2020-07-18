@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="card">
+        <form class="text-center border border-light p-5" [formGroup]="signup" (submit)="signupvalue(signup.value)">
+
+            <p class="h4 mb-4">Sign up</p>
+
+            <div class="form-row mb-4">
+                <div class="col">
+                    <input type="text" id="defaultRegisterFormFirstName" formControlName="firstName" class="form-control" placeholder="First name">
+                </div>
+
+                <div class="col">
+                    <input type="text" id="defaultRegisterFormLastName" formControlName="lastName" class=" form-control " placeholder="Last name">
+                </div>
+            </div>
+            <div *ngIf="signup.get('firstName').touched && signup.get('firstName').invalid" class="alert alert-danger">
+                firstName is required</div>
+
+            <div *ngIf="signup.get('lastName').touched && signup.get('lastName').invalid" class="alert alert-danger">
+                lastName is required</div>
+
+            <input type="email" id="defaultRegisterFormEmail" formControlName="email" class="form-control mb-4" placeholder="E-mail">
+            <div *ngIf="signup.get('email').touched && signup.get('email').invalid" class="alert alert-danger">
+                email is required</div>
+
+            <input type="number" id="mobile" formControlName="mobile" placeholder="phone-number" class="form-control mb-4">
+            <div *ngIf="signup.get('mobile').touched && signup.get('mobile').invalid" class="alert alert-danger">
+                <div *ngIf="signup.get('mobile').errors.required">
+                    phone number is required.
+                </div>
+                <div *ngIf="signup.get('mobile').errors.maxlength">
+                    phone number should be 10
+                </div>
+            </div>
+
+            <input type="text" id="gender" formControlName="gender" class="form-control mb-4" placeholder="Gender" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+            <div *ngIf="signup.get('gender').touched && signup.get('gender').invalid" class="alert alert-danger">
+                gender is required</div>
+
+
+            <input type="text" id="address" formControlName="address" class="form-control mb-4" placeholder="address" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+            <div *ngIf="signup.get('address').touched && signup.get('address').invalid" class="alert alert-danger">
+                address is required</div>
+
+            <input type="password" id="password" formControlName="password" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+            <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                At least 8 characters
+            </small>
+            <div *ngIf="signup.get('password').touched && signup.get('password').invalid" class="alert alert-danger">
+                <div *ngIf="signup.get('password').errors.required">
+                    password is required.
+                </div>
+                <div *ngIf="signup.get('password').errors.minlength">
+                    password should be min 8
+                </div>
+            </div>
+
+            <input type="password" id="confirmPassword" validateEqual="password" formControlName="confirmPassword" class="form-control mb-4" placeholder="confirmPassword" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+
+            <div *ngIf="signup.get('confirmPassword').touched && signup.get('confirmPassword').invalid" class="alert alert-danger">
+                <div *ngIf="signup.get('confirmPassword').errors.required">
+                    confirmPassword is required.
+                </div>
+                <small [hidden]="confirmPassword.invalid">
+                    Password mismatch
+                </small>
+            </div>
+
+            <button mdbBtn color="info" block="true" class="my-4" type="submit" [disabled]="signup.invalid">Sign
+                up</button>
+
+            <button mdbBtn color="info" block="true" class="my-4" type="submit" routerLink=''>Sign
+                in</button>
+        </form>
+    </div>
+</div>

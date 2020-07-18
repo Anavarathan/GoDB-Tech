@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <h1>File Upload</h1>
+    <form [formGroup]="myForm">
+        <div class="form-group">
+            <label for="file">File</label>
+            <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+            <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+                <div *ngIf="f.file.errors.required">File is required.</div>
+            </div>
+        </div>
+
+        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+    </form>
+</div>

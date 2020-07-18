@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<h2 class="text-center mt-3">List of Users</h2>
+
+<div class="container mt-5">
+    <ul class="list-group">
+        <li *ngFor="let users of user" class="list-group-item">{{users.name}}</li>
+    </ul>
+</div>
+
+<ngx-spinner></ngx-spinner>
